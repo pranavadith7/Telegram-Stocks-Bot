@@ -7,6 +7,9 @@ from telegram.ext import *
 from requests import *
 import os
 
+
+server = app.server
+
 def configure():
   load_dotenv()
 
