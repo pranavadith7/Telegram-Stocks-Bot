@@ -1,14 +1,18 @@
+# import creds
+from dotenv import load_dotenv
 import telebot
-import random
 import yfinance as yf
 from telegram import *
 from telegram.ext import *
 from requests import *
-import simple_colors
-# from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+import os
 
-API_KEY = "5916262382:AAGd2CdjyoBmigEpc_kvkVG6nhIaTC0rMnE"
-bot = telebot.TeleBot(API_KEY)
+def configure():
+  load_dotenv()
+
+configure()
+
+bot = telebot.TeleBot(os.getenv('API_KEY'))
 
 @bot.message_handler(commands=['greet'])
 def greet(message):
