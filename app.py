@@ -37,13 +37,13 @@ def get_stocks(message):
     columns = ['STOCKS']
     for row in data.iterrows():
       stock_position = len(stock_data) - 1
-      price = round(row['Close'], 2)
-      format_date = row['Date'].strftime('%d/%m/%y')
+      price = round(row[1][4], 2)
+      format_date = row[1][0].strftime('%d/%m/%y')
       response += f"{format_date}: {price}\n"
       stock_data[stock_position].append(price)
       columns.append(format_date)
 
-  response = "🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺"
+  response = "🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺\n"
   response += columns[0]
   response += "="*(res-len(columns[0]))
   response += columns[1]
